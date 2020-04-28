@@ -3,20 +3,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo '开始拉取代码.....'
+                echo '1开始拉取代码.....'
                 git  branch: 'prod', credentialsId: 'GitHub', url: 'https://github.com/Mrtest-test/simple-java-maven-app.git'
             }
         }
         stage('Build') {
             steps {
-                echo '开始执行打包操作.......'
+                echo '2开始执行打包操作.......'
                 sh 'D:\\soft\\apache-maven-3.6.3\\bin\\mvn clean package -U'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo '测活成功'
+                echo '3测活成功'
             }
         }
 
