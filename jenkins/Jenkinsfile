@@ -1,25 +1,22 @@
 pipeline {
-
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
+    stage('Checkout') {
+        steps {
+            echo '开始拉取代码.....'
+            git branch: "${params.BRANCH}" credentialsId: '5114e6cf-86f8-40ec-82ad-56407c78fe71', url: 'https://github.com/Mrtest-test/simple-java-maven-app.git'
         }
     }
+    stage('Build') {
+        steps {
+            echo '开始执行打包操作.......'
+            sh 'mvn clean package -U'
+        }
+    }
+
+    stage('Deploy') {
+        steps {
+
+            echo '测活成功'
+        }
+    }
+
 }
