@@ -2,7 +2,7 @@ pipeline {
     stage('Checkout') {
         steps {
             echo '开始拉取代码.....'
-            git branch: "${params.BRANCH}" credentialsId: '5114e6cf-86f8-40ec-82ad-56407c78fe71', url: 'https://github.com/Mrtest-test/simple-java-maven-app.git'
+            git credentialsId: '5114e6cf-86f8-40ec-82ad-56407c78fe71', url: 'https://github.com/Mrtest-test/simple-java-maven-app.git'
         }
     }
     stage('Build') {
