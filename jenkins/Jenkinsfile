@@ -1,23 +1,23 @@
 pipeline {
     stages {
         stage('Checkout') {
-                steps {
-                    echo '开始拉取代码.....'
-                    git  branch: 'prod', credentialsId: 'GitHub', url: 'https://github.com/Mrtest-test/simple-java-maven-app.git'
-                }
+            steps {
+                echo '开始拉取代码.....'
+                git  branch: 'prod', credentialsId: 'GitHub', url: 'https://github.com/Mrtest-test/simple-java-maven-app.git'
             }
-            stage('Build') {
-                steps {
-                    echo '开始执行打包操作.......'
-                    sh 'mvn clean package -U'
-                }
+        }
+        stage('Build') {
+            steps {
+                echo '开始执行打包操作.......'
+                sh 'mvn clean package -U'
             }
+        }
 
-            stage('Deploy') {
-                steps {
+        stage('Deploy') {
+            steps {
 
-                    echo '测活成功'
-                }
+                echo '测活成功'
             }
+        }
     }
 }
