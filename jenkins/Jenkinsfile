@@ -16,8 +16,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-
                 echo '测活成功'
+            }
+        }
+
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
