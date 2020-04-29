@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '2开始执行打包操作.......'
-                sh 'D:\\\\soft\\apache-maven-3.6.3\\bin\\mvn clean package -U'
+                sh 'D:\\\\soft\\\\apache-maven-3.6.3\\bin\\mvn clean package -U'
             }
         }
 
